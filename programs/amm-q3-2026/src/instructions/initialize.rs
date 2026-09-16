@@ -43,6 +43,24 @@ pub struct Initialize<'info> {
     #[account(
         init,
         payer = initializer,
+        seeds = [b"treasury_x", config.key.as_ref()],
+        bump,
+        token::mint = mint_x,
+        token::authority = config,
+    )]
+    pub treasury_x: Account<'info, TokenAccount>,
+    #[account(
+        init,
+        payer = initializer,
+        seeds = [b"treasury_y", config.key.as_ref()],
+        bump,
+        token::mint = mint_y,
+        token::authority = config,
+    )]
+    pub treasury_y: Account<'info, TokenAccount>,
+    #[account(
+        init,
+        payer = initializer,
         seeds = [b"config", seed.to_le_bytes().as_ref()],
         bump,
         space = Config::DISCRIMINATOR.len() + Config::INIT_SPACE,
@@ -71,6 +89,8 @@ impl<'info> Initialize<'info>{
                locked: false,
                config_bump: bumps.config,
                lp_bump: bumps.mint_lp,
+               treasury_x_bump: bumps.treasury_x,
+               treasury_y_bump: bumps.treasury_y,
            });
    
            Ok(())

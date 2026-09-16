@@ -1,4 +1,4 @@
 #[test]
-fn test_initialize() {
+fn test_deposit() {
     assert!(true);
 }
