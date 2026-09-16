@@ -140,6 +140,7 @@ version = "0.1.0"
 dependencies = [
  "anchor-lang",
  "anchor-spl",
+ "constant-product-curve",
  "litesvm",
  "solana-keypair",
  "solana-message",
@@ -910,6 +911,11 @@ name = "const-oid"
 version = "0.10.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a6ef517f0926dd24a1582492c791b6a4818a4d94e789a334894aa15b0d12f55c"
+
+[[package]]
+name = "constant-product-curve"
+version = "0.1.0"
+source = "git+https://github.com/deanmlittle/constant-product-curve.git#2a723a0ff5ad522f657f80c053c2bb290da28b70"
 
 [[package]]
 name = "constant_time_eq"
