@@ -15,11 +15,7 @@ declare_id!("HMqTrRBxW996utybyhDGYcxRvhNtGYqiYzHx56k2zoFA");
 pub mod amm_q3_2026 {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        crate::instructions::initialize::handle_initialize(ctx)
-    }
-
-    pub fn increment(ctx: Context<Increment>) -> Result<()> {
-        crate::instructions::increment::handle_increment(ctx)
+    pub fn initalize(ctx : Context<Initialize>,seed : u64,fee : u16,authority : Option<Pubkey>) -> Result<()>{
+        ctx.accounts.init(seed, fee, authority, ctx.bumps)
     }
 }
